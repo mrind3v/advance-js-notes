@@ -18,7 +18,7 @@ since we are passing a regular function as callback into setTimeout, js will res
 since the global object doesn't have an age attribute, it will be undefined 
 
 
-### 2. `this` inside an arrow function
+### 2. `this` inside an arrow callback function
 
 The value of this is inferred from the surrounding code of the arrow function 
 
@@ -34,7 +34,6 @@ function Person() {
 }
 ```
 Here the value of this is taken from the surrounding code (outside the web api setTimeout). Meaning, this would be bound to
-the Person object that will be created when we use the new keyword -> const person = new Person(). this would be bound to this person
+the Person object that will be created when we use the new keyword -> const person = new Person(). this would be bound to this person.
 
-
-
+> An arrow function looks for the nearest regular function it is sitting inside. In JavaScript, an object literal {} does not create a new scope for the this keyword. Only functions create a scope that arrow functions can inherit from.
