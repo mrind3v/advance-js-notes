@@ -1,0 +1,1 @@
+Debouncing ensures a function runs only after a specific amount of time has passed since the last time it was called.Every time the function is triggered, the previous timer is canceled and a new one starts.
