@@ -1,10 +1,7 @@
-In modern JavaScript, there are two primary ways to handle private and public fields: using **Classes** (the standard way) or **Closures** (the older way).
+In modern JavaScript, there are two primary ways to handle private and public members: using **Classes** (the standard way) or **Closures** (the older way).
 
 ### Method 1: ES6 Classes (Standard)
-Classes use the `#` prefix to make a field private. Anything without the `#` is public.
-
-* **Public fields:** Declared normally or inside the constructor. Accessible from outside the object.
-* **Private fields:** Declared with a `#`. Attempting to access them outside the class results in a syntax error.
+Classes use the `#` prefix to make a member private. Anything without the `#` is public.
 
 ```javascript
 class User {
@@ -20,12 +17,17 @@ class User {
   checkPassword(input) {
     return input === this.#password;
   }
+  // private method 
+  #anotherFn(input) {
+    // do something
+  }
 }
 
 const me = new User("Alice", "1234");
 console.log(me.name);      // "Alice"
 console.log(me.#password); // Syntax Error
 ```
+> Note: all methods defined outside the constructor within the class belong to the prototype. Those methods will be shared by all instances of the class. However, fields defined outside or inside the constructor are not inside prototype, they are instance-specific
 
 ### Method 2: Closures (Function Scope)
 This uses a function to "hide" variables. Only methods defined inside that function can see the local variables.
