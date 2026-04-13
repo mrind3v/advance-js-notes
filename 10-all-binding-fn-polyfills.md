@@ -30,7 +30,7 @@ return result;
 ```
 Eg: `func.myApply(thisObj,[arg1,arg2])`
 
->Note: The final execution context[fnKey](...args) evaluates to the exact same result in both polyfills even though we pass arguments to myApply and myCall differently
+>Note: The final execution `context[fnKey](...args)` evaluates to the exact same result in both polyfills even though we pass arguments to myApply and myCall differently
 ---
 ## Polyfill for Bind 
 
