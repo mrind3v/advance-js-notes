@@ -60,7 +60,7 @@ Array,prototype.myReduce = function(cb,initVal) {
     }
   }
   
-  for (let i=0; i<this.length; i++) {
+  for (let i=startIdx; i<this.length; i++) {
     if (i in this) {
       acc = cb(acc,this[i],i,this);
     }
