@@ -12,7 +12,6 @@ function myAllSettled(items) {
     items.forEach((promise,index)=>{
       Promise.resolve(promise).then((value)=>{
         results[index] = {status: "fulfilled",value: value};
-        completed++;
       }).catch((err)=>{
         results[index] = {status: "rejected", value: err};
       }).finally(()=>{
