@@ -27,7 +27,6 @@ const me = new User("Alice", "1234");
 console.log(me.name);      // "Alice"
 console.log(me.#password); // Syntax Error
 ```
-> Note: all methods defined outside the constructor within the class belong to the prototype. Those methods will be shared by all instances of the class. However, fields defined outside or inside the constructor are not inside prototype, they are instance-specific
 
 ### Method 2: Closures (Function Scope)
 This uses a function to "hide" variables. Only methods defined inside that function can see the local variables.
@@ -51,3 +50,16 @@ const me = CreateUser("Alice", "1234");
 console.log(me.name);   // "Alice"
 console.log(me.secret); // undefined
 ```
+
+### Prototype and Instance Members
+In JavaScript classes, members are public by default unless you specifically use a hashtag # prefix to make them private.
+
+##### Methods
+**Outside the constructor:** These are public prototype methods. They are shared by all instances of the class.
+
+**Inside the constructor:** Defining a method here (e.g., this.myMethod = function() {}) makes it a public instance method. It is recreated every time a new object is made, which uses more memory than a prototype method.
+
+##### Fields
+**Outside the constructor:** Known as "class fields," these are public by default.
+
+**Inside the constructor:** Any variable attached to this (e.g., this.name = 'John') is a public instance field.
